@@ -5,6 +5,45 @@
 }
 
 body {
-    background-color: grey;
+    background-color: lightsteelblue;
 }
 
+.call-to-action {
+    text-align: center;
+}
+
+.feature-box {
+    max-width: 1200px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.row {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-heading, .section-description {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.map-container-7{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+    }
+    .map-container-7 iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+    }
+    
+.section {
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 64px;
+}
