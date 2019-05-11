@@ -1,0 +1,23 @@
+.read-more-read-less {
+    .hide {
+      display: none;
+    }
+  
+    &__title {
+    }
+  
+    &__content {
+    }
+  
+    &__dots,
+    &__more {
+      display: inline-block;
+    }
+  
+    &__btn {
+        border-radius: 5px;
+        background-color: lightseagreen;
+        padding: 5px 15px;
+        border: none;
+    }
+  }

@@ -27,7 +27,8 @@ module.exports = (env, argv) => {
                     exclude: /(node_modules|bower_components|vendors)/,
                     loader: 'eslint-loader',
                     options: {
-                        fix: true,
+                        // @TODO - make it false to prevent auto-fixing
+                        fix: true,  
                     },
                 },
                 {
@@ -65,10 +66,18 @@ module.exports = (env, argv) => {
                         outputPath: 'assets/',
                     },
                 },
+                {
+                    test: /\.hbs$/,
+                    loader: 'handlebars-loader',
+                    options: {
+                      name: '[name].[ext]',
+                      useRelativePath: true,
+                    },
+                },             
             ],
         },
         plugins: [
-            new HtmlWebPackPlugin({
+              new HtmlWebPackPlugin({
                 template: 'src/index.html',
                 inject: 'body',
                 filename: 'index.html',
@@ -82,7 +91,12 @@ module.exports = (env, argv) => {
                 template: 'src/contact-us.html',
                 inject: 'body',
                 filename: 'contactus.html',
-              }),   
+              }),  
+              new HtmlWebPackPlugin({
+                template: 'src/plp.html',
+                inject: 'body',
+                filename: 'plp.html',
+              }),
             new webpack.ProvidePlugin({
                 $: 'jquery',
                 jQuery: 'jquery',
@@ -90,7 +104,7 @@ module.exports = (env, argv) => {
                 'window.jQuery': 'jquery',
                 Waves: 'node-waves',
                 _: 'underscore',
-                Promise: 'es6-promise',
+                Promise: 'es6-promise'
             }),
             new MiniCssExtractPlugin({
                 filename: argv.mode !== 'production' ? '[name].css' : '[name].[hash].css',
